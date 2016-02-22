@@ -1,1 +1,199 @@
-My Page
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User-editable Shapes</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        width: 100%
+      
+      }
+      #map {
+        height: 500px;
+        width: 1000px;
+        top-padding: 100px;
+        margin-left: 50px;
+      }
+    </style>
+      <script 
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+      </script>
+      <script>
+        $(function () {
+          $('nav li ul').hide().removeClass('fallback');
+          $('nav li').click(function () {
+            $('ul', this).stop().slideToggle(500);
+          });
+        });
+    </script>
+
+<script>
+        $(document).ready(function(){
+        $('li').append('<style>.outlineElement {  color: #654321  ;text-decoration: underline;} </style>');
+
+        $('li')
+            .mouseover(function(event) {
+        $(event.target).addClass('outlineElement');
+        })
+            .mouseout(function(event) {
+        $(event.target).removeClass('outlineElement');
+        });
+        });
+</script>
+
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+  </head>
+ <body style="background-image:url(north-america-w_0465.jpg)">
+
+    
+
+    <div id="title">
+        <h1>Here Lies Dragons - Custom Map Ordering</h1>
+    </div>
+
+
+  
+
+    <div id="map"></div>
+    <script>
+    var rectangle;
+    var currentBounds;
+    var map;
+    var rectangle;
+      // This example adds a user-editable rectangle to the map.
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 44.5452, lng: -78.5389},
+          zoom: 9
+        });
+
+        var bounds = {
+          north: 44.599,
+          south: 44.490,
+          east: -78.443,
+          west: -78.649
+        };
+
+        // Define a rectangle and set its editable property to true.
+         rectangle = new google.maps.Rectangle({
+          bounds: bounds,
+          editable: true,
+          draggable: true
+
+        });
+
+        rectangle.setMap(map);
+
+
+      }
+
+      function placeRectangle(){
+   
+          rectangle.setBounds(map.getBounds());
+
+        }
+
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdWvw-nnR8fxJzx1X6POJ1hvFkCZbgX2I&signed_in=true&callback=initMap">
+    </script>
+
+    <div id="placeRect">
+    <button onclick="placeRectangle()">Place Rectangle</button>
+  </div>
+
+  <script>
+  //get current bounds from map and set the bounds for the rectangle
+
+
+  </script>
+
+
+  <div class="wrapper1">
+    <div id="main">
+      <nav id="menu">
+        <ul id="`unordered">
+          <li>
+            <a id="time" href="#">Choose Your Desired Time Period...</a>
+            <ul class="fallback">
+         
+          <li >
+              <a href="#">Late-20th Century</a>
+              <ul class="fallback">
+
+              <li><a href="#">Late-20th Century</a></li>
+              <li><a href="#">Early-20th Century</a></li>
+
+            </ul>
+          </li>
+
+              <li><a href="#">Late-19th Century</a></li>
+              <li><a href="#">Early-19th Century</a></li>
+              <li><a href="#">Late-18th Century</a></li>
+              <li><a href="#">Early-18th Century</a></li>
+              <li><a href="#">Late-17th Century</a></li>
+              <li><a href="#">Early-17th Century</a></li>
+              <li><a href="#">Late-16th Century</a></li>
+              <li><a href="#">Early-16th Century</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+<div class="wrapper2">
+    <div id="main">
+      <nav id="menu">
+        <ul>
+
+          <li>
+            <a id="size" href="#">Choose Your Desired Size...</a>
+            <ul class="fallback">
+              <li><a href="#">SMALL - approx. 9x12" - $200</a></li>
+              <li><a href="#">MEDIUM - approx. 20x16" - $300 </a></li>
+              <li><a href="#">LARGE - approx. 24x18"- $400</a></li>
+              <li><a href="#">X-LARGE - approx. 36x24" - $800</a></li>
+              <li><a href="#">WALL-SIZE - approx. 72x36" - $3000</a></li>
+
+            </ul>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <style>
+    * {margin:0;padding:0;}
+    a img {border:none;}
+    a {text-decoration:none;}
+    body {font:400 12px/1.625 "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased;
+    -o-font-smoothing:antialiased;font-smoothing:antialiased;text-rendering:optimizeLegibility;color:#444;background:#F0F0ED;}
+    #map{float:left; position:absolute;top:100px;border:1px solid black; }
+    #placeRect {position: relative; width: 20%; margin-left: 60px; margin-top: 100px;}
+    .wrapper1 {position:relative;margin-right:50px;margin-left:80%;background: #2f4f4f  ; opacity: 0.4; border:1.5px solid black;border-radius: 10px;list-style-type:none;}
+    .wrapper2 {position:relative;margin-right:50px;margin-left:80%;margin-top: 125px; background: #2f4f4f; opacity: 0.4; border:2px solid black;border-radius: 10px;}
+    #menu li{margin:0 0 5px 0;}
+    #menu a{font-size: 15px; color: #F3F315;}
+    #title {font-family: Raleway, sans-serif; font-size: 20px; padding-top: 10px; padding-left: 50px;text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;}
+    #time {padding: 5px 5px 5px 5px;}
+    #size {padding: 5px 5px 5px 5px;}
+    #unordered{list-style-type:none;}
+
+
+    
+    
+    /* Demo navigation positioning
+    nav {position:absolute;top:200px;} */
+
+  </style>
+  
+
+  </body>
+</html>
